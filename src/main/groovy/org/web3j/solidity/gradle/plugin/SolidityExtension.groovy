@@ -41,6 +41,8 @@ class SolidityExtension {
 
     private Boolean prettyJson
 
+    private Boolean viaIr
+
     private Boolean ignoreMissing
 
     private List<String> allowPaths
@@ -77,6 +79,7 @@ class SolidityExtension {
                 CombinedOutputComponent.SRCMAP,
                 CombinedOutputComponent.SRCMAP_RUNTIME
         ]
+        this.viaIr = true
     }
 
     String getVersion() {
@@ -181,5 +184,13 @@ class SolidityExtension {
 
     void setCombinedOutputComponents(final CombinedOutputComponent[] combinedOutputComponents) {
         this.combinedOutputComponents = combinedOutputComponents
+    }
+
+    Boolean getViaIr() {
+        return viaIr
+    }
+
+    void setViaIr(final Boolean viaIr) {
+        this.viaIr = viaIr;
     }
 }

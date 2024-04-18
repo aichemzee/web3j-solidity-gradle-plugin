@@ -79,3 +79,11 @@ spotless {
         licenseHeaderFile "$rootDir/gradle/spotless/java.license"
     }
 }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}

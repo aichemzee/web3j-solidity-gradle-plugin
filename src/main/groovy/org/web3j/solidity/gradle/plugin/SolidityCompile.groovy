@@ -64,6 +64,10 @@ class SolidityCompile extends SourceTask {
 
     @Input
     @Optional
+    private Boolean viaIr
+
+    @Input
+    @Optional
     private OutputComponent[] outputComponents
 
     @Input
@@ -109,6 +113,10 @@ class SolidityCompile extends SourceTask {
             if (!allowPaths.isEmpty()) {
                 options.add("--allow-paths")
                 options.add(allowPaths.join(','))
+            }
+
+            if(viaIr) {
+                options.add("--via-ir")
             }
 
             final File nodeProjectDir = project.node.nodeProjectDir.asFile.get()
@@ -280,5 +288,13 @@ class SolidityCompile extends SourceTask {
 
     void setCombinedOutputComponents(CombinedOutputComponent[] combinedOutputComponents) {
         this.combinedOutputComponents = combinedOutputComponents
+    }
+
+    Boolean getViaIr() {
+        return viaIr
+    }
+
+    void setViaIr(final Boolean viaIr) {
+        this.viaIr = viaIr;
     }
 }

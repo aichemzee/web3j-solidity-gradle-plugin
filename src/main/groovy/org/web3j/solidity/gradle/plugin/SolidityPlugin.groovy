@@ -127,6 +127,7 @@ class SolidityPlugin implements Plugin<Project> {
         compileTask.evmVersion = project.solidity.evmVersion
         compileTask.allowPaths = project.solidity.allowPaths
         compileTask.ignoreMissing = project.solidity.ignoreMissing
+        compileTask.viaIr = project.solidity.viaIr
         compileTask.outputs.dir(soliditySourceSet.solidity.destinationDirectory)
         compileTask.description = "Compiles $sourceSet.name Solidity source."
 
